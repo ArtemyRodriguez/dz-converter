@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 
-	fmt.Println(" >>> Конвертер валют <<<")
+	fmt.Println(" >>> Конвертер валют! <<<")
 	var mainResult string = getResult()
 	fmt.Print(mainResult)
 
