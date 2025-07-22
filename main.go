@@ -3,40 +3,31 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(">>> Конвертер валют <<<")
-	result := getResult()
-	fmt.Print(result)
+	fmt.Println(">>> Конвертер валют (USD, EUR, RUB) <<<")
+
+	// Ввод данных
+	amount := getInput("Введите сумму: ")
+	from := getInput("Выберите исходную валюту (USD/EUR/RUB): ")
+	to := getInput("Выберите целевую валюту (USD/EUR/RUB): ")
+
+	// Конвертация (заглушка)
+	result := convert(amount, from, to)
+
+	// Вывод результата
+	fmt.Printf("Результат: %.2f %s = %.2f %s\n", amount, from, result, to)
 }
-func getUserInput() (int, float64) {
-	var currencyOperationCode int
-	var currencyLevel float64
-	fmt.Print("Выберите тип операции: >>> 1 - перевести Рубли в Доллары <<< / >>> 2 - перевести Доллары в Рубли <<<")
-	fmt.Scan(&currencyOperationCode)
-	switch {
-	case currencyOperationCode == 1:
-		fmt.Print("Какое кол-во рублей вы хотите обменять? - ")
-		fmt.Scan(&currencyLevel)
 
-	case currencyOperationCode == 2:
-		fmt.Print("Какое кол-во долларов вы хотите обменять? - ")
-		fmt.Scan(&currencyOperationCode)
-	}
-
-	return currencyOperationCode, currencyLevel
+// Функция для ввода данных
+func getInput(prompt string) float64 {
+	var input float64
+	fmt.Print(prompt)
+	fmt.Scan(&input)
+	return input
 }
-func getResult() float64 {
-	var exchangeRate float64
-	var result float64
-	exchangeRate = 78.0
-	currencyOperationCode, currencyLevel := getUserInput()
 
-	switch {
-	case currencyOperationCode == 1:
-		result = currencyLevel / exchangeRate
-
-	case currencyOperationCode == 2:
-		result = currencyLevel * exchangeRate
-
-	}
-	return result
+// Функция конвертации (заглушка)
+func convert(amount float64, from, to string) float64 {
+	// Здесь должна быть логика конвертации
+	// Пока просто возвращаем ту же сумму
+	return amount
 }
