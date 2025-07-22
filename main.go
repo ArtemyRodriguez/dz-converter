@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Конвертер валют")
+	fmt.Println(">>> Конвертер валют <<<")
 	result := getResult()
 	fmt.Print(result)
 }
